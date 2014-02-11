@@ -20,17 +20,23 @@ Or
 
 2. Create environment:
 
+    ```
     virtualenv venv
     . venv/bin/activate
     pip install -r requirements.txt
     mkdir media
     chmod a+rwx media
+    ```
 
 3. Start:
 
+    ```
     python __init__.py
+    ```
 
 4. Serve media:
 
+    ```
     cd media
     python -m SimpleHTTPServer
+    ```
