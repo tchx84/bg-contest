@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block contenido %}
+<h2>Sugarlabs Background Image Contest</h2>
+<p>
+Sugarlabs is glad to announce the first contest for Sugar Background
+Images. We'll choose 10 images that will form a pack of
+user-contributed backgrounds.
+</p>
+
+<div class="text-center">
+    <img src="{{ url_for('static', filename='contest/img/home.png') }}" alt="Sugarlabs">
+</div>
+
+<h3>1 - Create your background image!</h3>
+<ul>
+    <li>Be creative! You can use Paint or Turtle Blocks paintings, Record to take photos, and more activities.</li>
+    <li>You are not restricted to Sugar activities neither.</li>
+    <li>You can submit as many entries as you like.</li>
+    <li>Try to use size 1600 x 1200 pixels.  Or if you are using a Sugar activity, use the default size</li>
+</ul>
+
+<h3>2 - Test it in Sugar</h3>
+<ul>
+    <li>Place your background in Documents.</li>
+    <li>Go to My Settings -> Background.</li>
+    <li>Select your background.</li>
+</ul>
+
+<h3>3 - Apply to these terms and conditions:</h3>
+<ul>
+    <li>Be the author of the image, derivative work is allowed.</li>
+    <li>Use license CC-by-sa.</li>
+    <li>Use format PNG.</li>
+</ul>
+
+<h3>4 - Complete the Submit form</h3>
+
+<p>
+    <a class="btn btn-success" href="{{ url_for('submit') }}"><span class="glyphicon glyphicon-check"></span> Submit</a>
+</p>
+
+{% endblock %}

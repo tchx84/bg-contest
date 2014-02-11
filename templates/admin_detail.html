@@ -1,0 +1,30 @@
+{% extends "base_admin.html" %}
+{% block title %}Admin{% endblock %}
+{% block contenido %}
+<h2>{{ datos["bg_title"] }} <em>by</em> {{ datos["person_name"] }}</h2>
+<p>
+  <label>Full name:</label> {{ datos["person_name"] }}
+</p>
+<p>
+  <label>Email:</label> {{ datos["person_email"] }}
+</p>
+<p>
+  <label>Age:</label> {{ datos["person_age"] }}
+</p>
+<p>
+  <label>Country:</label> {{ datos["person_country"] }}
+</p>
+<p>
+  <label>Background title:</label> {{ datos["bg_title"] }}
+</p>
+<p>
+  <label>Images: (click to enlarge)</label><br/>
+  <a target="_blank" href="{{ URL_SUBIDOS }}{{ datos['bg_image'] }}">
+    <img height="150" src="{{ URL_SUBIDOS }}{{ datos['bg_image'] }}">
+  </a>
+  <a target="_blank" href="{{ URL_SUBIDOS }}{{ datos['person_photo'] }}">
+    <img height="150" src="{{ URL_SUBIDOS }}{{ datos['person_photo'] }}">
+  </a>
+</p>
+
+{% endblock %}

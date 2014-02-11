@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Hola{% endblock %}
+{% block contenido %}
+<h2>Submit!</h2>
+<form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ url_for('submit') }}">
+  <fieldset>
+
+    <legend>About you</legend>
+
+    <div class="form-group {% if 'person-name' in errores.keys() %}has-error{% endif %}">
+      <label for="inputPersonName" class="col-lg-2 control-label">Full name</label>
+      <div class="col-lg-10">
+        <input type="text" name="person-name" id="inputPersonName" class="form-control"
+               {% if 'person-name' in datos.keys() %}value="{{ datos['person-name'] }}"{% endif %}>
+        {% if 'person-name' in errores.keys() %}
+        <span class="help-block">{{ errores['person-name'] }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group  {% if 'person-email' in errores.keys() %}has-error{% endif %}">
+      <label for="inputPersonEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="email" name="person-email" id="inputPersonEmail" class="form-control"
+               {% if 'person-email' in datos.keys() %}value="{{ datos['person-email'] }}"{% endif %}>
+        {% if 'person-email' in errores.keys() %}
+        <span class="help-block">{{ errores['person-email'] }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group {% if 'person-age' in errores.keys() %}has-error{% endif %}">
+      <label for="inputPersonAge" class="col-lg-2 control-label">Age</label>
+      <div class="col-lg-10">
+        <input type="number" name="person-age" id="inputPersonAge" class="form-control"
+               {% if 'person-age' in datos.keys() %}value="{{ datos['person-age'] }}"{% endif %}>
+        {% if 'person-age' in errores.keys() %}
+        <span class="help-block">{{ errores['person-age'] }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group {% if 'person-country' in errores.keys() %}has-error{% endif %}">
+      <label for="inputPersonCountry" class="col-lg-2 control-label">Country</label>
+      <div class="col-lg-10">
+        <input type="text" name="person-country" id="inputPersonCountry" class="form-control"
+               {% if 'person-country' in datos.keys() %}value="{{ datos['person-country'] }}"{% endif %}>
+        {% if 'person-country' in errores.keys() %}
+        <span class="help-block">{{ errores['person-country'] }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group {% if 'person-photo' in errores.keys() %}has-error{% endif %}">
+      <label for="inputPersonPhoto" class="col-lg-2 control-label">Photo</label>
+      <div class="col-lg-10 {% if 'person-photo' in errores.keys() %}has-error{% endif %}">
+        <input type="file" name="person-photo" id="inputPersonPhoto">
+        <span class="help-block">Select a PNG image from your computer.</span>
+      </div>
+    </div>
+
+    <legend>About the background</legend>
+
+    <div class="form-group {% if 'bg-title' in errores.keys() %}has-error{% endif %}">
+      <label for="inputBgTitle" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <input type="text" name="bg-title" id="inputBgTitle" class="form-control"
+               {% if 'bg-title' in datos.keys() %}value="{{ datos['bg-title'] }}"{% endif %}>
+        {% if 'bg-title' in errores.keys() %}
+        <span class="help-block">{{ errores['bg-title'] }}</span>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="form-group {% if 'bg-image' in errores.keys() %}has-error{% endif %}">
+      <label for="inputBgImage" class="col-lg-2 control-label">Background</label>
+      <div class="col-lg-10 {% if 'bg-image' in errores.keys() %}has-error{% endif %}">
+        <input type="file" name="bg-image" id="inputBgImage">
+        <span class="help-block">Select a PNG image from your computer.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-10">
+          <div class="checkbox">
+            <label for="inputConditionsAccepted">
+              <input type="checkbox" name="conditions-accepted" id="inputConditionsAccepted"
+                     {% if 'conditions-accepted' in datos.keys() and datos['conditions-accepted'] == True %}checked="checked"{% endif %}>I accept the contest conditions.
+            </label>
+          </div>
+          <div class="{% if 'conditions-accepted' in errores.keys() %}has-error{% endif %}">
+          {% if 'conditions-accepted' in errores.keys() %}
+          <span class="help-block">{{ errores['conditions-accepted'] }}</span>
+          {% endif %}
+          </div>
+        </div>
+    </div>
+
+    <fieldset>
+        <button type="submit" class="btn btn-success btn-large">Send</button>
+    </fieldset>
+
+  </fieldset>
+</form>
+{% endblock %}

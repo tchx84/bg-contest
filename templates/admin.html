@@ -1,0 +1,20 @@
+{% extends "base_admin.html" %}
+{% block title %}Admin{% endblock %}
+{% block contenido %}
+<h2>Entries</h2>
+<small>
+<table id="inscriptos" class="table table-condensed">
+<tr>
+  <th>Title</th>
+  <th>Participant</th>
+</tr>
+{% for dato in datos %}
+{% set id = dato["id"] %}
+<tr>
+  <td><a href="{{ url_for('admin_detail', id_entry=id) }}">{{ dato["bg_title"] }}</a></td>
+  <td>{{ dato["person_name"] }}</td>
+</tr>
+{% endfor %}
+</table>
+</small>
+{% endblock %}
