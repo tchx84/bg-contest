@@ -32,13 +32,19 @@ Development
     chmod a+rwx media
     ```
 
-3. Start:
+3. Create database:
+
+    ```
+    sqlite3 contest.db < schema.sql
+    ```
+
+4. Start:
 
     ```
     python __init__.py
     ```
 
-4. In another console, serve media:
+5. In another console, serve media:
 
     ```
     cd media
