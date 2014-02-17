@@ -38,7 +38,7 @@ Development
     python __init__.py
     ```
 
-4. Serve media:
+4. In another console, serve media:
 
     ```
     cd media
